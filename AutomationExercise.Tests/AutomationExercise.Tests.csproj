@@ -29,11 +29,9 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Tests\API\" />
-    <Folder Include="Tests\UI\" />
     <Folder Include="Utilities\" />
     <Folder Include="TestData\" />
     <Folder Include="Services\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>
