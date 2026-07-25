@@ -30,7 +30,6 @@
     <Folder Include="Models\" />
     <Folder Include="Tests\API\" />
     <Folder Include="Utilities\" />
-    <Folder Include="TestData\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

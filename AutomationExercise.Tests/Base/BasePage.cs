@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace AutomationExercise.Tests.Base
 {
@@ -6,37 +7,72 @@ namespace AutomationExercise.Tests.Base
     {
         protected readonly IWebDriver driver;
 
+        protected readonly WebDriverWait wait;
+
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            wait.IgnoreExceptionTypes(
+                typeof(NoSuchElementException),
+                typeof(StaleElementReferenceException));
+        }
+
+        protected IWebElement WaitUntilVisible(By locator)
+        {
+            return wait.Until(driver =>
+            {
+                IWebElement element = driver.FindElement(locator);
+
+                return element.Displayed
+                ? element
+                : null;
+            })!;
+        }
+
+        protected IWebElement WaitUntilClickable(By locator)
+        {
+            return wait.Until(driver =>
+            {
+                IWebElement element = driver.FindElement(locator);
+
+                return element.Displayed && element.Enabled
+                ? element
+                : null;
+            })!;
         }
 
         protected IWebElement Find(By locator)
         {
-            return driver.FindElement(locator);
+            return wait.Until(driver =>
+                driver.FindElement(locator));
         }
 
         protected void Click(By locator)
         {
-            Find(locator).Click();
+            WaitUntilClickable(locator).Click();
         }
 
         protected void EnterText(By locator, string text)
         {
-            IWebElement element = Find(locator);
+            IWebElement element = WaitUntilVisible(locator);
 
             element.Clear();
-            element.SendKeys(text);
+            if (!string.IsNullOrEmpty(text))
+            {
+                element.SendKeys(text);
+            }
         }
 
         protected string GetText(By locator)
         {
-            return Find(locator).Text;
+            return WaitUntilVisible(locator).Text;
         }
 
         protected bool IsDisplayed(By locator)
         {
-            return Find(locator).Displayed;
+            return WaitUntilVisible(locator).Displayed;
         }
 
         protected string? GetAttribute(By locator, string attributeName)
