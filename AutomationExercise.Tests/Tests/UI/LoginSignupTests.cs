@@ -7,7 +7,6 @@ namespace AutomationExercise.Tests.Tests.UI
 {
     public class LoginSignupTests : BaseTest
     {
-
         [Test]
         public void Signup_Successful()
         {
