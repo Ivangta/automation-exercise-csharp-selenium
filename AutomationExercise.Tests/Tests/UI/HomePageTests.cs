@@ -7,7 +7,7 @@ namespace AutomationExercise.Tests.Tests.UI
     public class HomePageTests : BaseTest
     {
         [Test]
-        public void HomePage_Should_Display_Logo()
+        public void HomePage_Should_Display_Logo_Positive()
         {
             HomePage homePage = new HomePage(driver!);
 

@@ -8,7 +8,7 @@ namespace AutomationExercise.Tests.Tests.UI
     public class LoginSignupTests : BaseTest
     {
         [Test]
-        public void Signup_Successful()
+        public void Signup_Successful_Positive()
         {
             //Arrange
             CookieBanner cookieBanner = new CookieBanner(driver!);
@@ -26,7 +26,7 @@ namespace AutomationExercise.Tests.Tests.UI
 
 
         [Test]
-        public void Login_Should_Display_Error_Message_For_Invalid_Credentials()
+        public void Login_Should_Display_Error_Message_For_Invalid_Credentials_Negative()
         {
             //Arrange
             CookieBanner cookieBanner = new CookieBanner(driver!);
