@@ -4,11 +4,11 @@ using System.Text.Json;
 
 namespace AutomationExercise.Tests.API.Clients
 {
-    internal class UserApiClients
+    internal class UserApiClient
     {
         private readonly RestClient client;
 
-        public UserApiClients()
+        public UserApiClient()
         {
             client = new RestClient(
                 "https://automationexercise.com");

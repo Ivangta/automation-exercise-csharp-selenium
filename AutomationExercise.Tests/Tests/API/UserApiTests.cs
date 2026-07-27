@@ -14,7 +14,7 @@ namespace AutomationExercise.Tests.Tests.API
         public async Task CreateUser_Should_Create_New_User_Positive()
         {
             // Arrange
-            var userApiClient = new UserApiClients();
+            var userApiClient = new UserApiClient();
 
             string expectedName = "John " + RandomDataGenerator.GenerateRandomString(10);
             string expectedEmail = $"ivan.{Guid.NewGuid()}@example.com";
@@ -42,7 +42,7 @@ namespace AutomationExercise.Tests.Tests.API
         public async Task DeleteUser_Should_Remove_User_Positive()
         {
             // Arrange
-            var userApiClient = new UserApiClients();
+            var userApiClient = new UserApiClient();
 
             string name = "John " + RandomDataGenerator.GenerateRandomString(10);
             string email = $"John.{Guid.NewGuid()}@example.com";
@@ -69,7 +69,7 @@ namespace AutomationExercise.Tests.Tests.API
         public async Task UpdateUser_Should_Update_User_And_Return_Updated_Details_Positive()
         {
             // Arrange
-            var userApiClient = new UserApiClients();
+            var userApiClient = new UserApiClient();
 
             string originalName = "John " + RandomDataGenerator.GenerateRandomString(10);
             string email = $"John.{Guid.NewGuid()}@example.com";
