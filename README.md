@@ -1,10 +1,18 @@
 # automation-exercise-csharp-selenium
 UI and API Test Automation Framework using C#, Selenium WebDriver, NUnit and RestSharp.
 
-##Technologies Used
-Selenium, C#
+**##Technologies Used**
+- **C#**
+- **.NET**
+- **Selenium WebDriver**
+- **NUnit**
+- **RestSharp**
+- **System.Text.Json**
+- **ChromeDriver**
+- **Visual Studio**
+- **Git and GitHub**
 
-##Project Structure
+**##Project Structure**
 AutomationExercise.Tests
 ├── API
 │   ├── Clients
@@ -36,7 +44,7 @@ AutomationExercise.Tests
         ├── HomePageTests.cs
         └── LoginSignupTests.cs
 
-##Automated Scenarios
+**##Automated Scenarios**
 ### UI Tests
 
 - Verify that the home page loads successfully
@@ -50,7 +58,7 @@ AutomationExercise.Tests
 - Create and delete a user
 - Create, update and verify user details
 
-##Prerequisites
+**##Prerequisites**
 
 Before running the project, make sure the following are installed:
 - .NET SDK
@@ -58,7 +66,7 @@ Before running the project, make sure the following are installed:
 - Visual Studio or another compatible IDE
 - Git
 
-##Design
+**##Design**
 
 Page Object Model is used.
 BasePage contains reusable Selenium operations such as clicking, entering text, navigation, and element lookup.
@@ -69,7 +77,7 @@ Request and response models are used for clearer API data handling and JSON dese
 Random test data is generated to prevent conflicts with existing users.
 UI and API tests are stored in separate folders.
 
-##Possible improvements and further development of the project
+**##Possible improvements and further development of the project**
 
 Add automatic cleanups for users that are created with UI and API tests.
 Add Github Actions for CI.
