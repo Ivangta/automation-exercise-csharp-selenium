@@ -30,5 +30,10 @@ namespace AutomationExercise.Tests.Pages
         {
             return IsDisplayed(logo);
         }
+
+        public string GetLoggedInAsText()
+        {
+            return GetText(loggedInAsLabel);
+        }
     }
 }

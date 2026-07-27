@@ -14,5 +14,15 @@ namespace AutomationExercise.Tests.Pages
         public AccountCreatedPage(IWebDriver driver) : base(driver)
         {
         }
+
+        public string GetAccountCreatedMessage()
+        {
+            return GetText(accountCreatedTitle);
+        }
+
+        public void Continue()
+        {
+            Click(continueButton);
+        }
     }
 }

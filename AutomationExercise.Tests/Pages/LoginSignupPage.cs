@@ -15,9 +15,12 @@ namespace AutomationExercise.Tests.Pages
 
         private readonly By loginErrorMessage = By.CssSelector("form[action='/login'] p");
 
+        
         private readonly By nameSignupText = By.CssSelector("input[data-qa='signup-name']");
 
         private readonly By emailSignupText = By.CssSelector("input[data-qa='signup-email']");
+
+        private readonly By signupButton = By.CssSelector("button[data-qa='signup-button']");
 
         public LoginSignupPage(IWebDriver driver) : base(driver)
         {
@@ -32,13 +35,13 @@ namespace AutomationExercise.Tests.Pages
         {
             EnterText(nameSignupText, name);
             EnterText(emailSignupText, email);
-            Click(loginButton);
+            Click(signupButton);
         }
 
         public void Login(string email, string password)
         {
             EnterText(emailLoginText, email);
-            EnterText(passwordLoginText, email);
+            EnterText(passwordLoginText, password);
             Click(loginButton);
         }
 

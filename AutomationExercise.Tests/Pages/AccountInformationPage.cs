@@ -1,5 +1,6 @@
 ﻿using AutomationExercise.Tests.Base;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace AutomationExercise.Tests.Pages
 {
@@ -65,6 +66,67 @@ namespace AutomationExercise.Tests.Pages
 
         public AccountInformationPage(IWebDriver driver) : base(driver)
         {
+        }
+
+        public bool IsPageOpened()
+        {
+            return IsDisplayed(enterAccountInformationTitle);
+        }
+
+        public void FillAccountInformation(
+            string password,
+            string day,
+            string month,
+            string year,
+            string firstNameValue,
+            string lastNameValue,
+            string addressValue,
+            string countryValue,
+            string stateValue,
+            string cityValue,
+            string zipcodeValue,
+            string mobileNumberValue)
+        {
+            Click(mrRadioButton);
+
+            EnterText(passwordText, password);
+
+            SelectByValue(dayDropdown, day);
+            SelectByValue(monthDropdown, month);
+            SelectByValue(yearDropdown, year);
+
+            EnterText(firstName, firstNameValue);
+            EnterText(lastName, lastNameValue);
+            EnterText(address, addressValue);
+
+            SelectByText(country, countryValue);
+
+            EnterText(state, stateValue);
+            EnterText(city, cityValue);
+            EnterText(zipcode, zipcodeValue);
+            EnterText(mobileNumber, mobileNumberValue);
+        }
+
+        public void CreateAccount()
+        {
+            Click(createAccountButton);
+        }
+
+        private void SelectByValue(By locator, string value)
+        {
+            var dropdown = new SelectElement(Find(locator));
+            dropdown.SelectByValue(value);
+        }
+
+        private void SelectByText(By locator, string text)
+        {
+            var dropdown = new SelectElement(Find(locator));
+            dropdown.SelectByText(text);
+        }
+
+        public string GetFirstNameValidationMessage()
+        {
+            return Find(firstName).GetAttribute("validationMessage") ?? string.Empty;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace AutomationExercise.Tests.Base
 {
     public class BaseTest
     {
-        protected IWebDriver? driver;
+        protected IWebDriver driver = null!;
 
         [SetUp]
         public void Setup()
