@@ -18,5 +18,8 @@ namespace AutomationExercise.Tests.API.Models
 
         [JsonPropertyName("email")]
         public string Email { get; set; } = string.Empty;
+
+        [JsonPropertyName("title")]
+        public string Title { get; set; } = string.Empty;
     }
 }

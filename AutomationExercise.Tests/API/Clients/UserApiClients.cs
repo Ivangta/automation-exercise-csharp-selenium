@@ -14,14 +14,14 @@ namespace AutomationExercise.Tests.API.Clients
                 "https://automationexercise.com");
         }
 
-        public async Task<ApiResponseModel> CreateUserAsync(string name, string email, string password)
+        public async Task<ApiResponseModel> CreateUserAsync(string name, string email, string password, string title = "Mr")
         {
             var user = new UserRequestModel
             {
                 Name = name,
                 Email = email,
                 Password = password,
-                Title = "Mr",
+                Title = title,
                 BirthDate = "10",
                 BirthMonth = "5",
                 BirthYear = "1990",
@@ -74,14 +74,14 @@ namespace AutomationExercise.Tests.API.Clients
             return responseModel;
         }
 
-        public async Task<ApiResponseModel> UpdateUserAsync(string name, string email, string password)
+        public async Task<ApiResponseModel> UpdateUserAsync(string name, string email, string password, string title)
         {
             var user = new UserRequestModel
             {
                 Name = name,
                 Email = email,
                 Password = password,
-                Title = "Mr",
+                Title = title,
                 BirthDate = "10",
                 BirthMonth = "5",
                 BirthYear = "1990",

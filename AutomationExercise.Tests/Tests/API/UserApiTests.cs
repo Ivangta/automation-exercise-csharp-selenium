@@ -45,9 +45,8 @@ namespace AutomationExercise.Tests.Tests.API
             var userApiClient = new UserApiClients();
 
             string name = "John " + RandomDataGenerator.GenerateRandomString(10);
-            string email =
-                $"ivan.{Guid.NewGuid()}@example.com";
-            string password = "Test123!";
+            string email = $"John.{Guid.NewGuid()}@example.com";
+            string password = $"123.{Guid.NewGuid()}!";
 
             // Act - create
             var createResponse = await userApiClient.CreateUserAsync(name,  email, password);
@@ -67,21 +66,22 @@ namespace AutomationExercise.Tests.Tests.API
         }
 
         [Test]
-        public async Task UpdateUser_Should_Update_User_And_Return_Updated_Details()
+        public async Task UpdateUser_Should_Update_User_And_Return_Updated_Details_Positive()
         {
             // Arrange
             var userApiClient = new UserApiClients();
 
             string originalName = "John " + RandomDataGenerator.GenerateRandomString(10);
-            string updatedName = "Peter " + RandomDataGenerator.GenerateRandomString(10);
-            string email = $"ivan.{Guid.NewGuid()}@example.com";
-            string password = "Test123!";
+            string email = $"John.{Guid.NewGuid()}@example.com";
+            string password = $"123.{Guid.NewGuid()}!";
+            string updatedName = "Jen " + RandomDataGenerator.GenerateRandomString(10);
+            string updatedTitle = "Mrs";
 
             // Act - create
             var createResponse = await userApiClient.CreateUserAsync(originalName, email, password);
 
             // Act - update
-            var updateResponse = await userApiClient.UpdateUserAsync(updatedName, email, password);
+            var updateResponse = await userApiClient.UpdateUserAsync(updatedName, email, password, updatedTitle);
 
             // Act - get updated user
             var getUserResponse = await userApiClient.GetUserByEmailAsync(email);
@@ -98,6 +98,7 @@ namespace AutomationExercise.Tests.Tests.API
             Assert.That(getUserResponse.ResponseCode, Is.EqualTo(200));
             Assert.That(getUserResponse.User.Name, Is.EqualTo(updatedName));
             Assert.That(getUserResponse.User.Email, Is.EqualTo(email));
+            Assert.That(getUserResponse.User.Title, Is.EqualTo(updatedTitle));
         }
     }
 }
